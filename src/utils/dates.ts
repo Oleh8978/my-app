@@ -6,12 +6,16 @@ export function getCurrentDay() {
     return new Date();
 }
 
+export function getDateDateObj(date = getCurrentDay()) {
+    return date.getDate();
+}
+
 /**
  *  get current year, or get year from specific day
  * @param date 
  * @returns 
  */
-export function getYear(date = new Date()) {
+export function getYear(date = getCurrentDay()) {
     return date.getFullYear()
 }
 
@@ -20,8 +24,8 @@ export function getYear(date = new Date()) {
  * @param date 
  * @returns 
  */
-export function getMonth(date = new Date()) {
-    return date.getMonth()
+export function getMonth(date = getCurrentDay()) {
+    return date.getMonth() + 1
 }
 
 /**

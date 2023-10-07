@@ -12,3 +12,6 @@ export const formats = [
     'dd-mm-yyyy', // 7
     'mm-dd-yyyy', // 8
 ]
+
+// full name of the week 
+export const daysWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

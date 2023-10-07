@@ -14,13 +14,13 @@ export function formatDate(date = getCurrentDay(), format = 'regular') {
             // Expected output: "2011-10-05T14:48:00.000Z"
             return date.toISOString();
         case formats[1]:
-            return getCurrentDay();
+            return getDateDateObj(date);
         case formats[2]:
             // Expected output: "Wed Oct 05 2011 16:48:00 GMT+0200 (CEST)"
             // Note: your timezone may vary
             return date.toString();
         default:
-            return getCurrentDay()
+            return formatCustom(date, format)
     }
 }
 

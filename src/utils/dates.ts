@@ -1,5 +1,5 @@
 import { formatDate } from './formatters'
-import { formats, daysWeek } from './constansts'
+import { formats, daysWeek, monthNames, shortNameMonth } from './constansts'
 
 /**
  * get current day 
@@ -8,6 +8,10 @@ export function getCurrentDay() {
     return new Date();
 }
 
+/**
+ * @param date 
+ * @returns 
+ */
 export function getDateDateObj(date = getCurrentDay()) {
     return date.getDate();
 }
@@ -43,6 +47,25 @@ export function getLongDayOfWeek(date = getCurrentDay()) {
     return daysWeek[date.getDay()]
 }
 
+
+/**
+ * get long name of month 
+ * @param month 
+ * @returns 
+ */
+export function monthLong(month: number) {
+    return monthNames[month - 1]
+}
+
+/**
+ *  get short name of the month 
+ * @param month 
+ * @returns 
+ */
+export function monthShort(month: number) {
+    return shortNameMonth[month - 1]
+}
+
 /**
  * get all days in mont, by specific month and year
  * @param month 
@@ -64,8 +87,11 @@ export function getDaysInMonth(month = getMonth(), year = getYear()) {
             dmdy: formatDate(new Date(date), formats[8]),
             year: getYear(new Date(date)),
             month: getMonth(new Date(date)),
+            monthStringLong: monthLong(month),
+            monthStringShort: monthShort(month),
             shortDayOfWeek: getShortDayWeek(new Date(date)),
-            longDayOfWeek: getLongDayOfWeek(new Date(date))
+            longDayOfWeek: getLongDayOfWeek(new Date(date)),
+            seconds: new Date(date).getTime()
         });
         date.setDate(date.getDate() + 1);
     }
